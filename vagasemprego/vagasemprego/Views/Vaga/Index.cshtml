@@ -1,0 +1,49 @@
+﻿@model IEnumerable<vagasemprego.Models.VagaModel>
+
+@{
+    ViewData["Title"] = "Relação de Vagas";
+}
+
+<form name="form" id="form" method="get" enctype="multipart/form-data">
+    <p>
+        @Html.ActionLink("Cadastrar Vaga", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("TÍTULO")
+            </th>
+            <th>
+                @Html.DisplayName("REQUISITOS")
+            </th>
+            <th>
+                @Html.DisplayName("LOCAL")
+            </th>
+            <th>
+                @Html.DisplayName("SALÁRIO")
+            </th>
+        </tr>
+        @foreach (var vaga in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => vaga.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => vaga.Requisitos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => vaga.Local)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => vaga.Salario)
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+
+@if (TempData["VagaCreate"] != null)
+{
+    <script>alert('@Html.Raw(TempData["VagaCreate"].ToString())');</script>
+}

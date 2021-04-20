@@ -13,6 +13,6 @@ namespace vagasemprego.Context
         {
         }
 
-        DbSet<VagaModel> Vagas { get; set; }
+        public DbSet<VagaModel> Vagas { get; set; }
     }
 }
